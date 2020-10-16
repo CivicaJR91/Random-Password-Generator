@@ -1,40 +1,53 @@
 // Assignment Code
-var generateBtn = document.querySelector("#generate");
+var generateBtn = document.querySelector("#generate"); // referencing to the button
 
 // Write password to the #password input
 function writePassword() {
+
+
+
+  var passLenght= prompt("Choose the lenght of your password. Enter a number between 8 and 128."); {
+
+    if ( passLenght >=8 && passLenght <= 128);
+    
+    else { 
+      alert("Enter a number between 8 and 128.")
+    }
+    console.log(passLenght);
+  }  
+  
+  var upperLetters = confirm("Do you want upperLatters in your password?");
+
+  console.log(upperLetters);
+ 
+  var lowerLetter = confirm ("Do you want lowerLetters in your password");
+  console.log (lowerLetter);
+
+  var numbers = confirm ("Would you like to have numbers in your password");
+  console.log (numbers);
+
+  var specialChar = confirm ("Would you like to have special characters in your password");
+  console.log (specialChar);
+  
+
+
+
+
+
+  
+
+
+
+
+
   var password = generatePassword();
-  var passwordText = document.querySelector("#password");
+  var passwordText = document.querySelector("#password");// reference text box
 
-  var upper_Case = ["A","B","C","D","E","F","G","H","I","J","K","L","M","N","O","P","K","R","S","T","U","V","W","Y","Z"];
-  var lower_Case = ["a","b","c","d","e","f","g","h","i","j","k","l","m","n","o","p","k","r","s","t","u","w","y","z,"];
-
-
-
-
-
-  passwordText.value = password;
+   passwordText.value = password;
 
 }
 
-prompt ("Welcome To Password Generator. Please Select an Upper Case Letter From A to Z");
 
 
-
-// Add event listener to generate button
-generateBtn.addEventListener("click", writePassword);
-
-
-
-//var upper_Case = ["A","B","C","D","E","F","G","H","I","J","K","L","M","N","O","P","K","R","S","T","U","V","W","Y","Z"];
-
-//function upperLetter (){
-  //var regex = /^(?=.A-Z]).+$/;
-  //if (regex.test(password.value)) {
-    //return true
-  //}
-//}
-
-//console.log(upperLetter)
-
-  
+// Add event listener to generate button  - DONT TOUCH
+generateBtn.addEventListener("click", writePassword); 
