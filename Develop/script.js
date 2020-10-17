@@ -7,62 +7,54 @@ function writePassword() {
 
   //Prompt user to choose password lentght
 
-  var passLenght = prompt("Choose the lenght of your password. Enter a number between 8 and 128."); 
+  var passLenght = prompt("Choose the lenght of your password. Enter a number between 8 and 128.");
 
-    do {
-      if (passLenght >= 8 && passLenght <= 128) {
+  if (passLenght >= 8 && passLenght <= 128) {
 
-        break
+  }
 
-      } else { 
+  else {
 
-        alert("Enter a number between 8 and 128.")
+    alert("Enter a number between 8 and 128.")
 
-      }
-    }
-
-    while (false) 
-
-    console.log(passLenght);
+  }
 
 
-  // need to finish loop to prompt
-
-
+  console.log(passLenght);
 
 
   //Confirm is user wants to include upperletters
   var upperLetters = confirm("Do you want upperLetters in your password?");
+  upperLetters;
   console.log(upperLetters);
 
   //Confirm is user wants to include lowecaseletters
   var lowerLetter = confirm("Do you want lowerLetters in your password");
+  lowerLetter;
   console.log(lowerLetter);
 
   //Confirm is user wants to include numbers
-  var numbers = confirm("Would you like to have numbers in your password");
-  console.log(numbers);
+  //var numbers = confirm("Would you like to have numbers in your password");
+  //console.log(numbers);
 
   //Confirm is user wants to include special characters
-  var specialChar = confirm("Would you like to have special characters in your password");
-  console.log(specialChar);
+  //var specialChar = confirm("Would you like to have special characters in your password");
+  //console.log(specialChar);
 
 
 
 
   //Arrays of letters & special characters
 
-  var upCaseLetters = ["A","B","C","D"];
-  var lowCaseLetters = ["a","b","c"];
-  var symbols = "#@&";
-  var numForPass = "12345678";
-  var randomPass = "";
-
+  var upCaseLetters = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "G", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"];
+  var lowCaseLetters = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "g", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"];
+  //var symbols = ["#", "@", "&", "^", "~"];
+  //var numForPass = ["1", "2", "3", "4", "5", "6", "7", "8", "9"];
 
   //chekc to see if the user has at least input one option
 
-  
-  }
+
+
 
 
 
@@ -70,33 +62,38 @@ function writePassword() {
   //if it passes, continue
   //iff it doesn't pass, call the funciton again
 
-  if(!upCaseLetters && !lowCaseLetters && !symbols && !numForPass) {
-    alert("You most choose character type")
-  }
+  //if(!upCaseLetters && !lowCaseLetters && !symbols && !numForPass) {
+  //alert("You most choose character type")
+  //}
 
 
 
-// pass contains the lenghth generate with letter numbers spec chact.
- 
+  // pass contains the lenghth generate with letter numbers spec chact.
 
-function generatePassword() {
-
-   for (i = 0; i <= passLenght; i++){
+  function generatePassword() {
+    var newPassword = "";
+    var multipleChar = upCaseLetters.concat(lowCaseLetters);
    
 
-   var calc = Math.floor(Math.random() * upCaseLetters.length);
-    
-   }
-   console.log('RANDOM NUMBER ----> ', calc);
+      for (var i = 0; i < passLenght; i++) {
+
+      newPassword += getRandom(multipleChar);
+      console.log('RANDOM NUMBER ----> ', newPassword);
+
+    }
+
+    return newPassword;
+
+  }
+
+  function getRandom(charArray) { //will accept the aurgument. create a function to call the arrays
+
+    var calc = Math.floor(Math.random() * charArray.length); // give a random between 0 and the lenght 
+    var returnChar = charArray[calc]  //calc becomes the index passing uppercaseletters
 
 
-
-  
-
-
-
-
-
+    return returnChar;
+  }
 
 
   var password = generatePassword();
