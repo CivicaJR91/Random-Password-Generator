@@ -1,81 +1,67 @@
 // Assignment Code
-var generateBtn = document.querySelector("#generate"); // referencing to the button
+var generateBtn = document.querySelector("#generate");
 
 // Write password to the #password input
 function writePassword() {
 
 
-  //Prompt user to choose password lentght
+  //Prompt user to choose password lentght & characters type
+  /* Here is a Do While loop. "Do" will prompt you to enter a number between 8 and 128. If the user cancel or don't
+  enter an number will show the arlert "Enter a number between 8 and 128". And prompt to the user againg. 
+  The loop will not end until the user enter a number betwen 8 and 129.
+  */
 
-  var passLenght = prompt("Choose the lenght of your password. Enter a number between 8 and 128.");
+do {
 
-  if (passLenght >= 8 && passLenght <= 128) {
-
+  var passLenght = prompt("Please choose the lenghts of your password. Enter a number between 8 and 128.")
+  if (passLenght >= 8 && passLenght <= 128){
+      break;
+  } else 
+  {
+    alert("Enter a number between 8 and 128.");
   }
-
-  else {
-
-    alert("Enter a number between 8 and 128.")
-
-  }
+} while(true);
 
 
-  console.log(passLenght);
+  //var upperLetters = confirm("Would you like to include upperLetters in your password? (Example: A,B,C)");
+  //console.log(upperLetters);
 
+  //var lowerLetter = confirm("Would you like to include lowerLetters in your password? (Example: a,b,c)");
+  //console.log(lowerLetter);
 
-  //Confirm is user wants to include upperletters
-  var upperLetters = confirm("Do you want upperLetters in your password?");
-  upperLetters;
-  console.log(upperLetters);
-
-  //Confirm is user wants to include lowecaseletters
-  var lowerLetter = confirm("Do you want lowerLetters in your password");
-  lowerLetter;
-  console.log(lowerLetter);
-
-  //Confirm is user wants to include numbers
-  //var numbers = confirm("Would you like to have numbers in your password");
+  //var numbers = confirm("Would you like include numbers in your password?(Example: 1,2,3)");
   //console.log(numbers);
 
-  //Confirm is user wants to include special characters
-  //var specialChar = confirm("Would you like to have special characters in your password");
+  //var specialChar = confirm("Would you like to include special characters in your password?(Example: @,#,$)");
   //console.log(specialChar);
 
 
+  do {
+    var upperLetters = confirm("Would you like to include upperLetters in your password? (Example: A,B,C)");
+    var lowerLetter = confirm("Would you like to include lowerLetters in your password? (Example: a,b,c)");
 
+    if (upperLetters=== false && lowerLetter=== false){
+      alert( "Need to choose a character type");
+    } 
+  } while(upperLetters== true || lowerLetter ===true);
+  
 
-  //Arrays of letters & special characters
+alert("continue");
+
+  // variables for character type
 
   var upCaseLetters = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "G", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"];
   var lowCaseLetters = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "g", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"];
-  //var symbols = ["#", "@", "&", "^", "~"];
-  //var numForPass = ["1", "2", "3", "4", "5", "6", "7", "8", "9"];
+  var symbols = ["#", "@", "&", "^", "~"];
+  var numForPass = ["1", "2", "3", "4", "5", "6", "7", "8", "9"];
 
-  //chekc to see if the user has at least input one option
-
-
-
-
-
-
-  //check x y and z against each other 
-  //if it passes, continue
-  //iff it doesn't pass, call the funciton again
-
-  //if(!upCaseLetters && !lowCaseLetters && !symbols && !numForPass) {
-  //alert("You most choose character type")
-  //}
-
-
-
-  // pass contains the lenghth generate with letter numbers spec chact.
+  //Generate Password
 
   function generatePassword() {
     var newPassword = "";
-    var multipleChar = upCaseLetters.concat(lowCaseLetters);
-   
+    var multipleChar = upCaseLetters.concat(lowCaseLetters, symbols, numForPass);
 
-      for (var i = 0; i < passLenght; i++) {
+    for (var i = 0; i < passLenght; i++) {
 
       newPassword += getRandom(multipleChar);
       console.log('RANDOM NUMBER ----> ', newPassword);
@@ -86,10 +72,11 @@ function writePassword() {
 
   }
 
-  function getRandom(charArray) { //will accept the aurgument. create a function to call the arrays
+  // Funtion to generate random charaters
+  function getRandom(charArray) {
 
-    var calc = Math.floor(Math.random() * charArray.length); // give a random between 0 and the lenght 
-    var returnChar = charArray[calc]  //calc becomes the index passing uppercaseletters
+    var calc = Math.floor(Math.random() * charArray.length);
+    var returnChar = charArray[calc]
 
 
     return returnChar;
@@ -97,13 +84,11 @@ function writePassword() {
 
 
   var password = generatePassword();
-  var passwordText = document.querySelector("#password");// reference text box
+  var passwordText = document.querySelector("#password");
 
   passwordText.value = password;
 
 }
 
-
-
-// Add event listener to generate button  - DONT TOUCH
+// Add event listener to generate button 
 generateBtn.addEventListener("click", writePassword); 
