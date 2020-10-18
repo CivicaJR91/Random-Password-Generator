@@ -22,43 +22,65 @@ function writePassword() {
   } while (true);
 
 
-  
+
   // use Do-While to validate user select at least one character type if not prompt it to select one
   do {
     var upperLetters = confirm("Would you like to include upperLetters in your password? (Example: A,B,C)");
     console.log(upperLetters);
+    
     var lowerLetter = confirm("Would you like to include lowerLetters in your password? (Example: a,b,c)");
     console.log(lowerLetter);
+    
     numbers = confirm("Would you like include numbers in your password?(Example: 1,2,3)");
     console.log(numbers);
+    
     specialChar = confirm("Would you like to include special characters in your password?(Example: @,#,$)");
     console.log(specialChar);
 
     // if all character types are false tell user "Need to choos a character type"
 
-    if (upperLetters === false && lowerLetter === false && numbers===false && specialChar=== false) {
+    if (upperLetters === false && lowerLetter === false && numbers === false && specialChar === false) {
       alert("To be able to generate a password, select a character type such as: Upper or Lower Case Letter, Numbers or Special Character.");
     }
     // if user select at least one character type, proceed to generate password.
-    else if (upperLetters === true || lowerLetter === true || numbers=== false || specialChar=== false) {
+    else if (upperLetters === true || lowerLetter === true || numbers === false || specialChar === false) {
       break;
     }
-    
+
   } while (true);
 
-  // variables for character type and to create password
+  // using "if" to see if the condotions above are true. If they are, the application will add the character type 
 
-  var upCaseLetters = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "G", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"];
-  var lowCaseLetters = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "g", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"];
-  var symbols = ["#", "@", "&", "^", "~"];
-  var numForPass = ["1", "2", "3", "4", "5", "6", "7", "8", "9"];
+  if (upperLetters) {
+
+    var upCaseLetters = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "G", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"];
+  }
+
+  if (lowerLetter) {
+
+    var lowCaseLetters = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "g", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"];
+  }
+
+  if (numbers) {
+
+    
+    var numForPass = ["1", "2", "3", "4", "5", "6", "7", "8", "9"];
+
+  }
+
+  if (specialChar) {
+    var symbols = ["#", "@", "&", "^", "~"];
+
+  }
 
   //Generate Password
 
   function generatePassword() {
-    var newPassword = "";
-    var multipleChar = upCaseLetters.concat(lowCaseLetters, symbols, numForPass);
 
+    var newPassword = "";
+    var multipleChar = (upCaseLetters + lowCaseLetters + numForPass + symbols);
+
+    // Will tell the the statement how many rounds depending on the passlenght 
     for (var i = 0; i < passLenght; i++) {
 
       newPassword += getRandom(multipleChar);
@@ -70,12 +92,11 @@ function writePassword() {
 
   }
 
-  // Funtion to generate random charaters
+  // Funtion to generate random charaters. Assigned argument charArray to the function
   function getRandom(charArray) {
 
     var calc = Math.floor(Math.random() * charArray.length);
-    var returnChar = charArray[calc]
-
+    var returnChar = charArray[calc] //calc became the index for the arrays
 
     return returnChar;
   }
