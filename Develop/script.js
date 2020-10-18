@@ -78,7 +78,7 @@ function writePassword() {
   function generatePassword() {
 
     var newPassword = "";
-    var multipleChar = (upCaseLetters + lowCaseLetters + numForPass + symbols);
+    var multipleChar = upCaseLetters.concat(lowCaseLetters,numForPass,symbols);
 
     // Will tell the the statement how many rounds depending on the passlenght 
     for (var i = 0; i < passLenght; i++) {
