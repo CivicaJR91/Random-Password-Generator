@@ -60,7 +60,7 @@ User most choose between 8 and 128 characters.
 # Repository:
 
 * Repository: https://github.com/CivicaJR91/Random-Password-Generator
-* Page Link: https://civicajr91.github.io/Janliz-Suarez-Portfolio
+* Page Link: https://civicajr91.github.io/Random-Password-Generator/
 
 
 

@@ -27,13 +27,13 @@ function writePassword() {
   do {
     var upperLetters = confirm("Would you like to include upperLetters in your password? (Example: A,B,C)");
     console.log(upperLetters);
-    
+
     var lowerLetter = confirm("Would you like to include lowerLetters in your password? (Example: a,b,c)");
     console.log(lowerLetter);
-    
+
     numbers = confirm("Would you like include numbers in your password?(Example: 1,2,3)");
     console.log(numbers);
-    
+
     specialChar = confirm("Would you like to include special characters in your password?(Example: @,#,$)");
     console.log(specialChar);
 
@@ -63,7 +63,7 @@ function writePassword() {
 
   if (numbers) {
 
-    
+
     var numForPass = ["1", "2", "3", "4", "5", "6", "7", "8", "9"];
 
   }
