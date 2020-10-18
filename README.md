@@ -33,8 +33,6 @@ THEN the password is either displayed in an alert or written to the page
 
 # Mockup:
 
-
-
 ![Random Password Generator](Assets/Random_Pass_Generator.png)
 ![Modal_Box](Assets/modal_box_example.png)
 
@@ -61,7 +59,7 @@ User most choose between 8 and 128 characters.
 
 # Repository:
 
-* Repository: https://github.com/CivicaJR91/Janliz-Suarez-Portfolio
+* Repository: https://github.com/CivicaJR91/Random-Password-Generator
 * Page Link: https://civicajr91.github.io/Janliz-Suarez-Portfolio
 
 

@@ -6,49 +6,47 @@ function writePassword() {
 
 
   //Prompt user to choose password lentght & characters type
-  /* Here is a Do While loop. "Do" will prompt you to enter a number between 8 and 128. If the user cancel or don't
+  /* Here is a Do-While loop. "Do will prompt you to enter a number between 8 and 128. If the user cancel or don't
   enter an number will show the arlert "Enter a number between 8 and 128". And prompt to the user againg. 
   The loop will not end until the user enter a number betwen 8 and 129.
   */
 
-do {
+  do {
 
-  var passLenght = prompt("Please choose the lenghts of your password. Enter a number between 8 and 128.")
-  if (passLenght >= 8 && passLenght <= 128){
+    var passLenght = prompt("Please choose the lenghts of your password. Enter a number between 8 and 128.")
+    if (passLenght >= 8 && passLenght <= 128) {
       break;
-  } else 
-  {
-    alert("Enter a number between 8 and 128.");
-  }
-} while(true);
+    } else {
+      alert("Enter a number between 8 and 128.");
+    }
+  } while (true);
 
 
-  //var upperLetters = confirm("Would you like to include upperLetters in your password? (Example: A,B,C)");
-  //console.log(upperLetters);
-
-  //var lowerLetter = confirm("Would you like to include lowerLetters in your password? (Example: a,b,c)");
-  //console.log(lowerLetter);
-
-  //var numbers = confirm("Would you like include numbers in your password?(Example: 1,2,3)");
-  //console.log(numbers);
-
-  //var specialChar = confirm("Would you like to include special characters in your password?(Example: @,#,$)");
-  //console.log(specialChar);
-
-
+  
+  // use Do-While to validate user select at least one character type if not prompt it to select one
   do {
     var upperLetters = confirm("Would you like to include upperLetters in your password? (Example: A,B,C)");
+    console.log(upperLetters);
     var lowerLetter = confirm("Would you like to include lowerLetters in your password? (Example: a,b,c)");
+    console.log(lowerLetter);
+    numbers = confirm("Would you like include numbers in your password?(Example: 1,2,3)");
+    console.log(numbers);
+    specialChar = confirm("Would you like to include special characters in your password?(Example: @,#,$)");
+    console.log(specialChar);
 
-    if (upperLetters=== false && lowerLetter=== false){
-      alert( "Need to choose a character type");
-    } 
-  } while(upperLetters== true || lowerLetter ===true);
-  
+    // if all character types are false tell user "Need to choos a character type"
 
-alert("continue");
+    if (upperLetters === false && lowerLetter === false && numbers===false && specialChar=== false) {
+      alert("To be able to generate a password, select a character type such as: Upper or Lower Case Letter, Numbers or Special Character.");
+    }
+    // if user select at least one character type, proceed to generate password.
+    else if (upperLetters === true || lowerLetter === true || numbers=== false || specialChar=== false) {
+      break;
+    }
+    
+  } while (true);
 
-  // variables for character type
+  // variables for character type and to create password
 
   var upCaseLetters = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "G", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"];
   var lowCaseLetters = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "g", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"];
