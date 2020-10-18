@@ -51,34 +51,36 @@ function writePassword() {
 
   // using "if" to see if the condotions above are true. If they are, the application will add the character type 
 
-  if (upperLetters) {
+  if (upperLetters){
 
-    var upCaseLetters = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "G", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"];
-  }
-
-  if (lowerLetter) {
-
-    var lowCaseLetters = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "g", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"];
-  }
-
-  if (numbers) {
-
-
-    var numForPass = ["1", "2", "3", "4", "5", "6", "7", "8", "9"];
-
-  }
-
-  if (specialChar) {
-    var symbols = ["#", "@", "&", "^", "~"];
-
-  }
+    var upCaseLetters = "ABCDEFGHIGKLMNOPQRSTUVWXYZ";
+    }
+    
+    if (lowerLetter){
+    
+    var lowCaseLetters ="abcdefghigklmnopqrstuvwxyz";
+    }
+    
+    if (numbers){
+    
+    
+    var numForPass="123456789";
+    
+    }
+    
+    if (specialChar){
+    var symbols = "#@&^~";
+    
+    }
 
   //Generate Password
 
   function generatePassword() {
 
     var newPassword = "";
-    var multipleChar = upCaseLetters.concat(lowCaseLetters,numForPass,symbols);
+    const multipleChar = (upCaseLetters +lowCaseLetters+ numForPass + symbols);
+
+  
 
     // Will tell the the statement how many rounds depending on the passlenght 
     for (var i = 0; i < passLenght; i++) {
